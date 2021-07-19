@@ -1,0 +1,39 @@
+<div class="heading">
+    <h2>Fibonacci sequence</h2>
+    <p>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, …</p>
+    <hr/>
+</div>
+
+<div class="fibonacci-sequences">
+    {{#each data}}
+        <div class="fibonacci-sequence">
+            <span>Текущее число: <output id="current-fibonacci-number" name="current-fibonacci-number">{{this}}</output></span>
+            <form action="/fibonacci-next" method="post" style="display: inline-block;">
+                <input type="hidden" value="{{@index}}" name="id">
+                <button type="submit">Next</button>
+            </form>
+
+            <form action="/fibonacci-reset" method="post" style="display: inline-block;">
+                <input type="hidden" value="{{@index}}" name="id">
+                <button type="submit">Reset</button>
+            </form>
+            <form action="/fibonacci-delete" method="post" style="display: inline-block;">
+                <input type="hidden" value="{{@index}}" name="id">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    {{/each}}
+
+    <form action="/fibonacci-add" method="get">
+        <button type="submit">Add</button>
+    </form>
+    <hr>
+</div>
+
+<div class="clear-fibonacci-sequences">
+    {{#if data}}
+        <form action="/fibonacci-delete-all" method="get">
+            <button type="submit">Clear</button>
+        </form>
+    {{/if}}
+</div>

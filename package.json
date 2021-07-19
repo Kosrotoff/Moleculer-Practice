@@ -1,0 +1,31 @@
+{
+  "name": "moleculer-practice",
+  "version": "1.0.0",
+  "description": "PBF Group: Task #2",
+  "scripts": {
+    "rebuild": "node-gyp rebuild",
+    "start": "moleculer-runner",
+    "dev": "moleculer-runner --repl --hot src/services"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kosrotoff/Moleculer-Practice.git"
+  },
+  "author": "Bondarenko Sergey Ivanovich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kosrotoff/Moleculer-Practice/issues"
+  },
+  "homepage": "https://github.com/Kosrotoff/Moleculer-Practice#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "moleculer": "^0.14.15",
+    "moleculer-web": "^0.10.0",
+    "nan": "^2.14.2",
+    "node-gyp": "^8.1.0"
+  },
+  "devDependencies": {
+    "moleculer-repl": "^0.6.6"
+  }
+}

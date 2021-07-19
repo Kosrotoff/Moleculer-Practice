@@ -1,0 +1,17 @@
+button {
+    width: 60px;
+    margin-left: 5px;
+}
+
+.heading {
+    margin-bottom: 10px;
+}
+.fibonacci-sequences {
+    margin-bottom: 2px;
+}
+.fibonacci-sequence {
+    margin-bottom: 5px;
+}
+.clear-fibonacci-sequences {
+    margin-top: 10px;
+}
