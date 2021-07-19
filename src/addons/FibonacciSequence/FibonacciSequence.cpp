@@ -87,7 +87,6 @@ void FibonacciSequence::addonInitialization(Local<Object> exports)
 void FibonacciSequence::New(const Nan::FunctionCallbackInfo<Value>& info)
 {
     Local<Context> context = info.GetIsolate()->GetCurrentContext();
-    Isolate* isolate = info.GetIsolate();
 
     if (info.IsConstructCall()) {
         string firstNumber = info[0]->IsUndefined() ? "0" : to_string(static_cast<int>(info[0]->NumberValue(context).FromJust()));
@@ -110,7 +109,7 @@ void FibonacciSequence::next(const Nan::FunctionCallbackInfo<Value>& info)
     FibonacciSequence* obj = ObjectWrap::Unwrap<FibonacciSequence>(info.Holder());
 
     Isolate* isolate = info.GetIsolate();
-    info.GetReturnValue().Set(String::NewFromUtf8(isolate, obj->firstNumber.c_str()).ToLocalChecked());
+    info.GetReturnValue().Set(String::NewFromUtf8(isolate, obj->firstNumber.c_str()));
 
     string next = obj->sumBigIntegerNumber(obj->firstNumber, obj->secondNumber);
     obj->firstNumber = obj->secondNumber;
@@ -122,7 +121,7 @@ void FibonacciSequence::current(const Nan::FunctionCallbackInfo<Value>& info)
     FibonacciSequence* obj = ObjectWrap::Unwrap<FibonacciSequence>(info.Holder());
 
     Isolate* isolate = info.GetIsolate();
-    info.GetReturnValue().Set(String::NewFromUtf8(isolate, obj->firstNumber.c_str()).ToLocalChecked());
+    info.GetReturnValue().Set(String::NewFromUtf8(isolate, obj->firstNumber.c_str()));
 }
 
 void FibonacciSequence::reset(const Nan::FunctionCallbackInfo<Value>& info)
@@ -139,7 +138,7 @@ void FibonacciSequence::reset(const Nan::FunctionCallbackInfo<Value>& info)
             isolate->ThrowException(
                 Exception::TypeError(
                     String::NewFromUtf8(isolate,
-                    "Invalid type of arguments.").ToLocalChecked()
+                    "Invalid type of arguments.")
                 )
             );
             return;
@@ -152,7 +151,7 @@ void FibonacciSequence::reset(const Nan::FunctionCallbackInfo<Value>& info)
         isolate->ThrowException(
             Exception::TypeError(
                 String::NewFromUtf8(isolate,
-                "Invalid number of arguments.").ToLocalChecked()
+                "Invalid number of arguments.")
             )
         );
         return;

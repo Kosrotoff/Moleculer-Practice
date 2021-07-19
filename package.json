@@ -4,7 +4,7 @@
   "description": "PBF Group: Task #2",
   "scripts": {
     "rebuild": "node-gyp rebuild",
-    "start": "moleculer-runner",
+    "start": "moleculer-runner src/services",
     "dev": "moleculer-runner --repl --hot src/services"
   },
   "repository": {
